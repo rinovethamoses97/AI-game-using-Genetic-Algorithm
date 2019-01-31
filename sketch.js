@@ -24,8 +24,8 @@ function setup(){
 		population[i]=new Object();
 		population[i].genes=new Object();
 		population[i].score=0;
-		population[i].genes.x=random(101, 110);
-		population[i].genes.y=random(101, 490);
+		population[i].genes.x=100;
+		population[i].genes.y=500;
 	}
 }
 function euclidean(x1,y1,x2,y2){
