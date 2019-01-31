@@ -152,33 +152,33 @@ function mutate(child){
 	// 		child.genes.y+=velocity;
 	// 	}
 	// }	
-	// else if(temp>75 && temp <85){
-	// 	child.genes.x+=velocity;
-	// 	if(collisioncheck(child.genes.x,child.genes.y)){
-	// 		child.genes.x+=velocity;
-	// 		child.genes.y+=velocity;
-	// 	}
-	// }
-	// else if(temp>85 && temp <100){
-	// 	child.genes.x-=velocity;
-	// 	if(child.genes.x<100){
-	// 		child.genes.x+=velocity;
-	// 	}
-	// 	if(collisioncheck(child.genes.x,child.genes.y)){
-	// 		child.genes.x+=velocity;
-	// 		child.genes.y+=velocity;
-	// 	}	
-	// }
-	// else if(temp>100 && temp <115){
-	// 	child.genes.y+=velocity;
-	// 	if(child.genes.y+10>100){
-	// 		child.genes.y-=velocity;
-	// 	}	
-	// 	if(collisioncheck(child.genes.x,child.genes.y)){
-	// 		child.genes.x+=velocity;
-	// 		child.genes.y+=velocity;
-	// 	}
-	// }
+	else if(temp>75 && temp <85){
+		child.genes.x+=velocity;
+		if(collisioncheck(child.genes.x,child.genes.y)){
+			child.genes.x+=velocity;
+			child.genes.y+=velocity;
+		}
+	}
+	else if(temp>85 && temp <100){
+		child.genes.x-=velocity;
+		if(child.genes.x<100){
+			child.genes.x+=velocity;
+		}
+		if(collisioncheck(child.genes.x,child.genes.y)){
+			child.genes.x+=velocity;
+			child.genes.y+=velocity;
+		}	
+	}
+	else if(temp>100 && temp <115){
+		child.genes.y+=velocity;
+		if(child.genes.y+10>100){
+			child.genes.y-=velocity;
+		}	
+		if(collisioncheck(child.genes.x,child.genes.y)){
+			child.genes.x+=velocity;
+			child.genes.y+=velocity;
+		}
+	}
 	return child;
 }
 function naturalselection(){
