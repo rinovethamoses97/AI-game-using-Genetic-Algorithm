@@ -16,7 +16,7 @@ var obstacle3x=300;
 var obstacle3y=220;
 var obstacle4x=300;
 var obstacle4y=330;
-var velocity=3;
+var velocity=2;
 function setup(){
 	createCanvas(screen.width,screen.height);
 	rect(100,100,600,400);
@@ -148,15 +148,13 @@ function mutate(child){
 	// 		child.genes.y+=velocity;
 	// 	}
 	// 	if(collisioncheck(child.genes.x,child.genes.y)){
-	// 		child.genes.x+=velocity;
 	// 		child.genes.y+=velocity;
 	// 	}
 	// }	
 	else if(temp>75 && temp <85){
 		child.genes.x+=velocity;
 		if(collisioncheck(child.genes.x,child.genes.y)){
-			child.genes.x+=velocity;
-			child.genes.y+=velocity;
+			child.genes.x-=velocity;
 		}
 	}
 	else if(temp>85 && temp <100){
@@ -166,7 +164,6 @@ function mutate(child){
 		}
 		if(collisioncheck(child.genes.x,child.genes.y)){
 			child.genes.x+=velocity;
-			child.genes.y+=velocity;
 		}	
 	}
 	else if(temp>100 && temp <115){
@@ -175,8 +172,7 @@ function mutate(child){
 			child.genes.y-=velocity;
 		}	
 		if(collisioncheck(child.genes.x,child.genes.y)){
-			child.genes.x+=velocity;
-			child.genes.y+=velocity;
+			child.genes.y-=velocity;
 		}
 	}
 	return child;
