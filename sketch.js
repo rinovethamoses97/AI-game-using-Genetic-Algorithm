@@ -7,15 +7,15 @@ var generations=0;
 var max_score=0;
 var bestpopulation;
 var obstaclex=400;
-var obstacley=270;
+var obstacley=300;
 var obstacle1x=400;
 var obstacle1y=380;
 var obstacle2x=400;
-var obstacle2y=160;
+var obstacle2y=230;
 var obstacle3x=300;
-var obstacle3y=220;
+var obstacle3y=120;
 var obstacle4x=300;
-var obstacle4y=330;
+var obstacle4y=430;
 var velocity=2;
 function setup(){
 	createCanvas(screen.width,screen.height);
@@ -33,11 +33,11 @@ function euclidean(x1,y1,x2,y2){
 	var temp2=(y2-y1)*(y2-y1);
 	return sqrt(temp1+temp2);
 }
-function manhattan(x1,y1,x2,y2){
-	var temp1=abs((x2-x1));
-	var temp2=abs((y2-y1));
-	return(temp1+temp2);
-}
+// function manhattan(x1,y1,x2,y2){
+// 	var temp1=abs((x2-x1));
+// 	var temp2=abs((y2-y1));
+// 	return(temp1+temp2);
+// }
 function calfitnessscore(){
 	for(var i=0;i<populationmax;i++){
 		population[i].score=1-euclidean(population[i].genes.x,population[i].genes.y,targetx,population[i].genes.y)/targetx;		
@@ -91,7 +91,7 @@ function collisioncheck(x,y){
     return false;
 }
 function mutate(child){
-	var temp=random(0,115);
+	var temp=random(0,135);
 	if(temp>0 && temp<15){
 		child.genes.x+=velocity;
 		child.genes.y+=velocity;
@@ -151,13 +151,13 @@ function mutate(child){
 	// 		child.genes.y+=velocity;
 	// 	}
 	// }	
-	else if(temp>75 && temp <85){
+	else if(temp>75 && temp <90){
 		child.genes.x+=velocity;
 		if(collisioncheck(child.genes.x,child.genes.y)){
 			child.genes.x-=velocity;
 		}
 	}
-	else if(temp>85 && temp <100){
+	else if(temp>90 && temp <105){
 		child.genes.x-=velocity;
 		if(child.genes.x<100){
 			child.genes.x+=velocity;
@@ -166,7 +166,7 @@ function mutate(child){
 			child.genes.x+=velocity;
 		}	
 	}
-	else if(temp>100 && temp <115){
+	else if(temp>105 && temp <120){
 		child.genes.y+=velocity;
 		if(child.genes.y+10>100){
 			child.genes.y-=velocity;
@@ -202,7 +202,7 @@ function naturalselection(){
 }
 function isfinished(){
 	for(var i=0;i<populationmax;i++){
-		if(population[i].genes.x>=targetx)
+		if(population[i].genes.x+10>=targetx)
 			return true;
 	}
 	return false;
